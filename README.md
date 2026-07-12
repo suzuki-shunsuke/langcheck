@@ -1,2 +1,57 @@
 # langcheck
-`langcheck` is a CLI for checking if disallowed characters are included in files and texts. This is useful to prevent coding agents from using disallowed characters in code, commit messages, issues, pull requests, and so on.
+
+`langcheck` is a CLI for checking if disallowed characters are included in files and texts.
+This is useful to prevent coding agents from using disallowed characters in code, commit messages, issues, pull requests, and so on.
+In the context of OSS, we usually use English, but sometimes coding agents use non-English languages because many non-English speakers communities with coding agents in their native language.
+Even if suggesting using English in documents like `AGENTS.md`, coding agents sometimes ignore the instruction.
+By running `langcheck` in Git hooks, you can prevent disallowed characters from being committed.
+
+## Usage
+
+```sh
+langcheck check [--text "<text>"]... [<file>...]
+```
+
+## Examples
+
+### hk
+
+https://hk.jdx.dev/
+
+hk.pkl
+
+```pkl
+amends "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+  ["langcheck"] {
+    glob = List("**/*")
+    check = "langcheck {{files}}"
+    fix = "langcheck {{files}}"
+    batch = true
+  }
+}
+
+hooks {
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    steps = linters
+  }
+  ["commit-msg"] {
+    steps {
+      ["validate-commit-msg"] {
+        check = "langcheck {{commit_msg_file}}"
+      }
+    }
+  }
+  ["fix"] {
+    fix = true
+    steps = linters
+  }
+  ["check"] {
+    steps = linters
+  }
+}
+```

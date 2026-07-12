@@ -1,0 +1,60 @@
+---
+version: 2
+project_name: langcheck
+archives:
+  - name_template: "{{.ProjectName}}_{{.Os}}_{{.Arch}}"
+    files:
+      - LICENSE
+      - README.md
+      - third_party_licenses/**/*
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+checksum:
+  name_template: "{{ .ProjectName }}_checksums.txt"
+builds:
+  - binary: langcheck
+    main: cmd/langcheck/main.go
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+release:
+  prerelease: "true"
+  header: |
+    [Pull Requests](https://github.com/suzuki-shunsuke/langcheck/pulls?q=is%3Apr+milestone%3A{{.Tag}}) | [Issues](https://github.com/suzuki-shunsuke/langcheck/issues?q=is%3Aissue+milestone%3A{{.Tag}}) | https://github.com/suzuki-shunsuke/langcheck/compare/{{.PreviousTag}}...{{.Tag}}
+
+sboms:
+  - id: default
+    disable: false
+
+homebrew_casks:
+  - repository:
+      owner: suzuki-shunsuke
+      name: homebrew-langcheck
+    # The project name and current git tag are used in the format string.
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+    homepage: https://github.com/suzuki-shunsuke/langcheck
+    description: Check files and text for disallowed characters.
+    license: MIT
+    skip_upload: true
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/langcheck"]
+          end
+
+scoops:
+  - description: |
+      Check files and text for disallowed characters.
+    license: MIT
+    skip_upload: true
+    repository:
+      owner: suzuki-shunsuke
+      name: scoop-bucket
