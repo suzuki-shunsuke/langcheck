@@ -23,14 +23,15 @@ https://hk.jdx.dev/
 hk.pkl
 
 ```pkl
-amends "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Config.pkl"
-import "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Builtins.pkl"
+amends "package://github.com/jdx/hk/releases/download/v1.50.0/hk@1.50.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.50.0/hk@1.50.0#/Builtins.pkl"
 
 local linters = new Mapping<String, Step> {
   ["langcheck"] {
+    // https://github.com/suzuki-shunsuke/langcheck
     glob = List("**/*")
-    check = "langcheck {{files}}"
-    fix = "langcheck {{files}}"
+    check = "langcheck check {{files}}"
+    fix = "langcheck check {{files}}"
     batch = true
   }
 }
@@ -43,8 +44,9 @@ hooks {
   }
   ["commit-msg"] {
     steps {
-      ["validate-commit-msg"] {
-        check = "langcheck {{commit_msg_file}}"
+      ["langcheck"] {
+        // https://github.com/suzuki-shunsuke/langcheck
+        check = "langcheck check {{commit_msg_file}}"
       }
     }
   }
