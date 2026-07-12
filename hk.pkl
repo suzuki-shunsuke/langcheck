@@ -18,7 +18,8 @@ local linters = new Mapping<String, Step> {
     fix = "go test -race -covermode=atomic ./..." // run as check in fix mode (no real fix possible)
     batch = true
   }
-  ["ascii"] {
+  ["langcheck"] {
+    // https://github.com/suzuki-shunsuke/langcheck
     glob = List("**/*")
     check = "go run ./cmd/langcheck check {{files}}"
     fix = "go run ./cmd/langcheck check {{files}}"
@@ -34,8 +35,9 @@ hooks {
   }
   ["commit-msg"] {
     steps {
-      ["validate-commit-msg"] {
-        check = "go run ./cmd/langcheck check {{commit_msg_file}}"
+      ["langcheck"] {
+        // https://github.com/suzuki-shunsuke/langcheck
+        check = "langcheck check {{commit_msg_file}}"
       }
     }
   }
