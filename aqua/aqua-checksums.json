@@ -106,28 +106,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/mvdan/gofumpt/v0.10.0/gofumpt_v0.10.0_darwin_amd64",
-      "checksum": "30E5B914A824C3B6BD0480E4F493517012167D380DE74643879C50F4AA0C834E",
+      "id": "github_release/github.com/mvdan/gofumpt/v0.12.0/gofumpt_v0.12.0_darwin_amd64",
+      "checksum": "1D3626892A321ACA96A891696EAECB8F68E69E90582C2B55672D5CA210FD5FA8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/mvdan/gofumpt/v0.10.0/gofumpt_v0.10.0_darwin_arm64",
-      "checksum": "BA4B348E729CBA915D5C7DC515774E2F2C7CC5C5AD011DE20D34BE10E5A2F906",
+      "id": "github_release/github.com/mvdan/gofumpt/v0.12.0/gofumpt_v0.12.0_darwin_arm64",
+      "checksum": "1A3E325B956ED12C21031D9E13382BD51A4FABB57DE8D40428819B9583C3CFB9",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/mvdan/gofumpt/v0.10.0/gofumpt_v0.10.0_linux_amd64",
-      "checksum": "48EE398EC72AFDACA6ACCB70F5ED741349D5DCCCB52C5BB4C4469D698980B186",
+      "id": "github_release/github.com/mvdan/gofumpt/v0.12.0/gofumpt_v0.12.0_linux_amd64",
+      "checksum": "3BC4FCAD497439918F5F56D4987DE4709A99DA0A355E6BEC13A7278532B01D38",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/mvdan/gofumpt/v0.10.0/gofumpt_v0.10.0_linux_arm64",
-      "checksum": "5D239F93B1ED2DFE74D39B25112BB770A04F6581F986D4B4F5D380521E12CA61",
+      "id": "github_release/github.com/mvdan/gofumpt/v0.12.0/gofumpt_v0.12.0_linux_arm64",
+      "checksum": "4322F081241AB0618356AA5921A8C110E4C7ACFC17175CC15DC57B2F4A4B652D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/mvdan/gofumpt/v0.10.0/gofumpt_v0.10.0_windows_amd64.exe",
-      "checksum": "20872B464435512B74678B1155B75BD75220DE5737AD8C075B9151C846543697",
+      "id": "github_release/github.com/mvdan/gofumpt/v0.12.0/gofumpt_v0.12.0_windows_amd64.exe",
+      "checksum": "66BD679908B64864FC85417E7EA01148774B477364B9A02AB1C194333A55C997",
       "algorithm": "sha256"
     },
     {
