@@ -11,7 +11,7 @@ USAGE:
    langcheck [global options] [command [command options]]
 
 VERSION:
-   0.0.1-0
+   0.0.2
 
 COMMANDS:
    check       
@@ -78,7 +78,7 @@ DESCRIPTION:
    langcheck completion fish > ~/.config/fish/completions/langcheck.fish
 
    # Powershell
-   Output the script to path/to/autocomplete/langcheck.ps1 an run it.
+   Output the script to path/to/autocomplete/langcheck.ps1 and run it.
 
 
 COMMANDS:
