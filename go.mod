@@ -1,6 +1,6 @@
 module github.com/suzuki-shunsuke/langcheck
 
-go 1.27.3
+go 1.27.4
 
 require (
 	github.com/suzuki-shunsuke/slog-error v0.2.2
